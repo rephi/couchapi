@@ -1,0 +1,10 @@
+{
+  "couchdb": {
+    "host": "msg.satisco.com",
+    "port": 5984,
+    "name": "couchdb",
+    "connector": "couch",
+    "db": "db_articles",
+    "protocol": "http"
+  }
+}

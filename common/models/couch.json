@@ -1,0 +1,43 @@
+{
+  "name": "couch",
+  "plural": "couches",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "promoprice": {
+      "type": "number",
+      "required": true
+    },
+    "qty": {
+      "type": "number",
+      "required": true
+    },
+    "datestrt": {
+      "type": "date",
+      "required": true
+    },
+    "datefin": {
+      "type": "date",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

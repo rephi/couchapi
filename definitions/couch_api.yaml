@@ -1,0 +1,436 @@
+paths:
+  /couches:
+    post:
+      tags:
+        - couch
+      summary: Create a new instance of the model and persist it into the data source.
+      operationId: couch.create
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/couch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/couch'
+      deprecated: false
+    put:
+      tags:
+        - couch
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: couch.upsert__put_couches
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/couch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/couch'
+      deprecated: false
+    patch:
+      tags:
+        - couch
+      summary: Patch an existing model instance or insert a new one into the data source.
+      operationId: couch.upsert__patch_couches
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/couch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/couch'
+      deprecated: false
+    get:
+      tags:
+        - couch
+      summary: Find all instances of the model matched by filter from the data source.
+      operationId: couch.find
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/couch'
+      deprecated: false
+  /couches/replaceOrCreate:
+    post:
+      tags:
+        - couch
+      summary: Replace an existing model instance or insert a new one into the data source.
+      operationId: couch.replaceOrCreate
+      parameters:
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/couch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/couch'
+      deprecated: false
+  /couches/upsertWithWhere:
+    post:
+      tags:
+        - couch
+      summary: Update an existing model instance or insert a new one into the data source based on the where criteria.
+      operationId: couch.upsertWithWhere
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/couch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/couch'
+      deprecated: false
+  '/couches/{id}/exists':
+    get:
+      tags:
+        - couch
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'couch.exists__get_couches_{id}_exists'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+  '/couches/{id}':
+    head:
+      tags:
+        - couch
+      summary: Check whether a model instance exists in the data source.
+      operationId: 'couch.exists__head_couches_{id}'
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              exists:
+                type: boolean
+      deprecated: false
+    get:
+      tags:
+        - couch
+      summary: 'Find a model instance by {{id}} from the data source.'
+      operationId: couch.findById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: filter
+          in: query
+          description: 'Filter defining fields and include - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/couch'
+      deprecated: false
+    delete:
+      tags:
+        - couch
+      summary: 'Delete a model instance by {{id}} from the data source.'
+      operationId: couch.deleteById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+      deprecated: false
+    put:
+      tags:
+        - couch
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: 'couch.prototype.updateAttributes__put_couches_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/couch'
+        - name: id
+          in: path
+          description: couch id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/couch'
+      deprecated: false
+    patch:
+      tags:
+        - couch
+      summary: Patch attributes for a model instance and persist it into the data source.
+      operationId: 'couch.prototype.updateAttributes__patch_couches_{id}'
+      parameters:
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/couch'
+        - name: id
+          in: path
+          description: couch id
+          required: true
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/couch'
+      deprecated: false
+  '/couches/{id}/replace':
+    post:
+      tags:
+        - couch
+      summary: Replace attributes for a model instance and persist it into the data source.
+      operationId: couch.replaceById
+      parameters:
+        - name: id
+          in: path
+          description: Model id
+          required: true
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: Model instance data
+          required: false
+          schema:
+            description: Model instance data
+            $ref: '#/definitions/couch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/couch'
+      deprecated: false
+  /couches/findOne:
+    get:
+      tags:
+        - couch
+      summary: Find first instance of the model matched by filter from the data source.
+      operationId: couch.findOne
+      parameters:
+        - name: filter
+          in: query
+          description: 'Filter defining fields, where, include, order, offset, and limit - must be a JSON-encoded string ({"something":"value"})'
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            $ref: '#/definitions/couch'
+      deprecated: false
+  /couches/update:
+    post:
+      tags:
+        - couch
+      summary: 'Update instances of the model matched by {{where}} from the data source.'
+      operationId: couch.updateAll
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+        - name: data
+          in: body
+          description: An object of model property name/value pairs
+          required: false
+          schema:
+            description: An object of model property name/value pairs
+            $ref: '#/definitions/couch'
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            description: Information related to the outcome of the operation
+            type: object
+            properties:
+              count:
+                description: The number of instances updated
+                type: number
+                format: double
+      deprecated: false
+  /couches/count:
+    get:
+      tags:
+        - couch
+      summary: Count instances of the model matched by where from the data source.
+      operationId: couch.count
+      parameters:
+        - name: where
+          in: query
+          description: Criteria to match model instances
+          required: false
+          type: string
+          format: JSON
+      responses:
+        '200':
+          description: Request was successful
+          schema:
+            type: object
+            properties:
+              count:
+                type: number
+                format: double
+      deprecated: false
+definitions:
+  couch:
+    properties:
+      code:
+        type: string
+      name:
+        type: string
+      promoprice:
+        type: number
+        format: double
+      qty:
+        type: number
+        format: double
+      datestrt:
+        type: string
+        format: date-time
+      datefin:
+        type: string
+        format: date-time
+      active:
+        type: boolean
+      id:
+        type: string
+    required:
+      - code
+      - name
+      - promoprice
+      - qty
+      - datestrt
+      - datefin
+      - active
+    additionalProperties: false
+  x-any:
+    properties: {}
+basePath: /api
+swagger: '2.0'
+info:
+  x-ibm-name: couch_api
+  version: 1.0.0
+  title: couch_api
+schemes:
+  - https
+host: $(catalog.host)
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  clientIdHeader:
+    type: apiKey
+    in: header
+    name: X-IBM-Client-Id
+  clientSecretHeader:
+    in: header
+    name: X-IBM-Client-Secret
+    type: apiKey
+security:
+  - clientIdHeader: []
+    clientSecretHeader: []
+x-ibm-configuration:
+  testable: true
+  enforced: true
+  cors:
+    enabled: true
+  catalogs:
+    apic-dev:
+      properties:
+        runtime-url: $(TARGET_URL)
+    sb:
+      properties:
+        runtime-url: 'http://localhost:4001'
+  assembly:
+    execute:
+      - invoke:
+          target-url: $(runtime-url)$(request.path)$(request.search)
