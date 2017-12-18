@@ -374,8 +374,10 @@ definitions:
         format: double
       datestrt:
         type: string
+        format: date-time
       datefin:
         type: string
+        format: date-time
       active:
         type: boolean
       id:
